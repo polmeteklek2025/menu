@@ -163,60 +163,53 @@
     color: #222;
   }
 
-  /* NOWE: stały przycisk powrotu ze strzałką SVG */
+ /* Elegancki złoto-brązowy przycisk powrotu */
+.back-button {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #8B6B32, #C6A664);
+  box-shadow: 0 4px 12px rgba(139, 107, 50, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.back-button svg {
+  width: 26px;
+  height: 26px;
+  fill: white;
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover {
+  background: linear-gradient(145deg, #C6A664, #E0C883);
+  box-shadow: 0 6px 16px rgba(198, 166, 100, 0.6);
+  transform: scale(1.1);
+}
+
+.back-button:hover svg {
+  transform: translateX(-3px);
+}
+
+@media (max-width: 600px) {
   .back-button {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: rgba(0,0,0,0.8);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 100;
-    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    left: 20px;
   }
-
   .back-button svg {
-    width: 26px;
-    height: 26px;
-    fill: white;
-    transition: transform 0.3s ease;
+    width: 22px;
+    height: 22px;
   }
-
-  .back-button:hover {
-    background-color: rgba(0,0,0,1);
-    transform: scale(1.08);
-  }
-
-  .back-button:hover svg {
-    transform: translateX(-3px);
-  }
-
-  @media (max-width: 600px) {
-    .menu-item img { width: 70vw; height: 70vw; margin-bottom: 15px; }
-    .menu-text { width: 90%; font-size: 1em; }
-    .menu-text.full { width: 90%; }
-    h2 { font-size: 1.2em; }
-    p { font-size: 0.95em; line-height: 1.4; }
-    .header-image { max-height: 100px; }
-    .allergen-warning { width: 95%; font-size: 0.95em; }
-
-    .back-button {
-      width: 50px;
-      height: 50px;
-      bottom: 20px;
-      left: 20px;
-    }
-    .back-button svg {
-      width: 22px;
-      height: 22px;
-    }
-  }
+}
 </style>
 </head>
 <body>
@@ -457,6 +450,7 @@
 
 </body>
 </html>
+
 
 
 
