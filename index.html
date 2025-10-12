@@ -16,9 +16,10 @@
     overflow-x: hidden;
   }
 
+  /* Parallax – podniesione tło pod dolny brzeg obrazka */
   .parallax {
     position: fixed;
-    top: 120px;
+    top: 120px; /* dokładnie pod napismenu */
     left: 0;
     width: 100%;
     height: calc(100% - 120px);
@@ -182,10 +183,11 @@
   }
 
   .back-arrow {
-    font-size: 28px;
+    font-size: 16px; /* mniejsza strzałka */
     color: white;
-    font-weight: bold;
+    font-weight: normal;
     line-height: 1;
+    transform: rotate(-45deg); /* subtelny kąt, bardziej linia */
     transition: transform 0.3s ease;
   }
 
@@ -196,15 +198,15 @@
   }
 
   .back-button:hover .back-arrow {
-    transform: translateX(-3px);
+    transform: rotate(-45deg) translateX(-2px);
   }
 
   .back-button:active {
-    transform: scale(1.25); /* większe powiększenie przy kliknięciu */
+    transform: scale(1.25);
   }
 
   .back-button:active .back-arrow {
-    transform: translateX(-4px); /* lekko przesunięta strzałka */
+    transform: rotate(-45deg) translateX(-3px);
   }
 
   @media (max-width: 600px) {
@@ -223,7 +225,7 @@
       left: 20px;
     }
     .back-arrow {
-      font-size: 22px;
+      font-size: 14px;
     }
   }
 </style>
@@ -238,6 +240,12 @@
   </div>
 </div>
 
+<div class="parallax"></div>
+
+<!-- Przycisk powrotu -->
+<div class="back-button" onclick="window.location.href='https://polmeteklek2025.github.io/gdziesiedze/'">
+  <span class="back-arrow">&lt;</span>
+</div>
 <div class="parallax"></div>
 
 <!-- Przycisk powrotu -->
@@ -463,6 +471,7 @@
 
 </body>
 </html>
+
 
 
 
