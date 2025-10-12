@@ -163,7 +163,7 @@
     color: #222;
   }
 
-  /* przycisk powrotu – tylko zmiana koloru strzałki na złoty */
+  /* przycisk powrotu – złoto-brązowe tło i biała strzałka */
   .back-button {
     position: fixed;
     bottom: 25px;
@@ -171,8 +171,8 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: rgba(0,0,0,0.8);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    background: linear-gradient(145deg, #8B6B32, #C6A664);
+    box-shadow: 0 4px 12px rgba(139, 107, 50, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,13 +184,14 @@
   .back-button svg {
     width: 26px;
     height: 26px;
-    fill: #C6A664; /* złoty kolor strzałki */
+    fill: white;
     transition: transform 0.3s ease;
   }
 
   .back-button:hover {
-    background-color: rgba(0,0,0,1);
-    transform: scale(1.08);
+    background: linear-gradient(145deg, #C6A664, #E0C883);
+    box-shadow: 0 6px 16px rgba(198, 166, 100, 0.6);
+    transform: scale(1.1);
   }
 
   .back-button:hover svg {
@@ -234,7 +235,7 @@
 <!-- Przycisk powrotu -->
 <div class="back-button" onclick="window.location.href='https://polmeteklek2025.github.io/gdziesiedze/'">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    <path d="M15 18l-6-6 6-6" />
   </svg>
 </div>
 
@@ -457,6 +458,7 @@
 
 </body>
 </html>
+
 
 
 
