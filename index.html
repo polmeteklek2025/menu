@@ -16,6 +16,18 @@
     overflow-x: hidden;
   }
 
+  /* Parallax tło tlo.jpg - PRZED napismenu2.jpg */
+  .parallax {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('tlo.jpg') no-repeat center top;
+    background-size: cover;
+    z-index: 0; /* POD napismenu2.jpg */
+  }
+
   /* Górne tło napismenu2.jpg */
   .header-top {
     position: relative;
@@ -23,7 +35,7 @@
     height: 300px; /* wysokość prostokąta z napisem */
     background: url('napismenu2.jpg') no-repeat center top;
     background-size: cover;
-    z-index: 0;
+    z-index: 1; /* NAD tlo.jpg */
   }
 
   /* Flagi */
@@ -50,23 +62,11 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
   }
 
-  /* Parallax tło pod napismenu2.jpg */
-  .parallax {
-    position: fixed;
-    top: 250px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('tlo.jpg') no-repeat center top;
-    background-size: cover;
-    z-index: -1;
-  }
-
   /* Kontener całej zawartości strony */
   .content {
     position: relative;
-    z-index: 1;
-    margin-top: -150px; /* przesunięcie zawartości w górę, nachodzącej na napismenu2.jpg */
+    z-index: 2; /* NAD napismenu2.jpg */
+    margin-top: -150px; /* zawartość nachodzi na napismenu2.jpg */
     padding-top: 40px;
   }
 
@@ -208,7 +208,10 @@
 </head>
 <body>
 
-<!-- Górne tło napismenu2.jpg -->
+<!-- Parallax tło tlo.jpg -->
+<div class="parallax"></div>
+
+<!-- Górne tło napismenu2.jpg nachodzi na tło -->
 <div class="header-top"></div>
 
 <!-- Flagi -->
@@ -216,9 +219,6 @@
   <img src="flagaangli.png" alt="English" id="flag-en">
   <img src="flagaukrainy.png" alt="Ukrainian" id="flag-ua">
 </div>
-
-<!-- Parallax tło -->
-<div class="parallax"></div>
 
 <!-- Przycisk powrotu -->
 <div class="back-button" onclick="window.location.href='https://polmeteklek2025.github.io/gdziesiedze/'">
@@ -229,7 +229,8 @@
 
 <!-- Zawartość strony nachodzi na napismenu2.jpg -->
 <div class="content">
-
+  <!-- reszta zawartości strony -->
+</div>
  
 <div class="menu-container">
 
@@ -456,6 +457,7 @@
 
 </body>
 </html>
+
 
 
 
