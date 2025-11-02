@@ -38,16 +38,15 @@
   }
 
 .header-image {
-  width: 100vw;          /* pełna szerokość ekranu */
-  height: auto;          /* zachowuje proporcje */
-  max-height: none;      /* brak limitu wysokości */
-  object-fit: contain;   /* pokazuje CAŁE zdjęcie bez przycinania */
-  display: block;
-  background-color: transparent; /* zachowuje przezroczystość */
-  mix-blend-mode: multiply;      /* subtelne przenikanie z tłem */
-  z-index: 2;
-  position: relative;
-  cursor: pointer;
+    width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    display: block;
+    z-index: 2;
+    position: relative;
+    cursor: pointer;
+    mix-blend-mode: multiply;
+    background-color: transparent;
   }
 
   .flags-container {
@@ -469,6 +468,7 @@
 
 </body>
 </html>
+
 
 
 
