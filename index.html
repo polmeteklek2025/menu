@@ -19,23 +19,23 @@
   /* Tło strony: tlo.jpg */
   .parallax {
     position: fixed;
-    top: 0;
+    top: 300px; /* zaczyna się od dolnego brzegu napismenu2.jpg */
     left: 0;
     width: 100%;
     height: 100%;
     background: url('tlo.jpg') no-repeat center top;
     background-size: cover;
-    z-index: 0; /* POD wszystkim */
+    z-index: 0;
   }
 
   /* Dolne tło napismenu2.jpg */
   .header-bottom {
     position: relative;
     width: 100%;
-    height: 300px; /* wysokość prostokąta z napisem */
+    height: 300px;
     background: url('napismenu2.jpg') no-repeat center top;
     background-size: cover;
-    z-index: 1; /* NAD tlo.jpg, ale POD zawartością */
+    z-index: 1;
   }
 
   /* Flagi */
@@ -66,7 +66,8 @@
   .content {
     position: relative;
     z-index: 2; /* nad napismenu2.jpg */
-    margin-top: 40px; /* można delikatnie przesunąć w dół */
+    margin-top: -100px; /* zawartość nachodzi na napismenu2.jpg */
+    padding-top: 20px;
   }
 
   .menu-container {
@@ -112,13 +113,12 @@
     padding: 10px 15px;
     border-radius: 15px;
     text-align: justify;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     transition: all 0.8s ease-out;
   }
 
-  .menu-text.full {
-    padding: 20px 25px;
-    margin-bottom: 20px;
+  .menu-text.full h2 {
+    margin-bottom: 8px; /* niewielki odstęp między nagłówkiem a potrawami */
   }
 
   h2 {
@@ -195,12 +195,37 @@
 </head>
 <body>
 
-<!-- Parallax tło: tlo.jpg -->
+<!-- Tło strony: tlo.jpg -->
 <div class="parallax"></div>
 
-<!-- Zawartość strony nachodzi na tlo.jpg -->
+<!-- Zawartość strony nachodzi na napismenu2.jpg -->
 <div class="content">
-  <!-- tutaj zawartość menu, zdjęcia potraw itp. -->
+  <div class="menu-container">
+    <div class="menu-item visible">
+      <img src="potrawa1.jpg" alt="Potrawa 1">
+      <div class="menu-text full">
+        <h2>- Zupa serwowana</h2>
+        <p>Rosół z makaronem</p>
+        <p>Barszcz czerwony</p>
+      </div>
+    </div>
+    <div class="menu-item visible">
+      <img src="potrawa2.jpg" alt="Potrawa 2">
+      <div class="menu-text full">
+        <h2>- Drugie danie serwowane</h2>
+        <p>Schabowy z ziemniakami</p>
+        <p>Ryba po grecku</p>
+      </div>
+    </div>
+    <div class="menu-item visible">
+      <img src="potrawa3.jpg" alt="Potrawa 3">
+      <div class="menu-text full">
+        <h2>- Desery</h2>
+        <p>Sernik domowy</p>
+        <p>Lody czekoladowe</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Dolne tło: napismenu2.jpg -->
@@ -219,7 +244,7 @@
   </svg>
 </div>
 
- 
+
 <div class="menu-container">
 
   <!-- Zupy -->
@@ -445,6 +470,7 @@
 
 </body>
 </html>
+
 
 
 
