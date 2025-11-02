@@ -28,6 +28,7 @@ body {
     z-index: -1;
     transform: translateY(0);
     transition: transform 0.1s linear;
+    opacity: 0.7; /* przezroczyste tło */
 }
 
 .header-container {
@@ -38,14 +39,13 @@ body {
 }
 
 .header-image {
-    width: 100%;
+    width: 100%; /* dopasowanie do szerokości ekranu/telefonu */
     max-height: 120px;
     object-fit: contain;
     display: block;
-    z-index: 2;
     position: relative;
     cursor: pointer;
-    z-index: -2;
+    z-index: -2; /* nadal pod tłem tlo.jpg */
 }
 
 .flags-container {
@@ -173,7 +173,7 @@ p {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(145deg, #8B6B32, #C6A664); /* złoto-brązowe tło */
+    background: linear-gradient(145deg, #8B6B32, #C6A664);
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     display: flex;
     align-items: center;
@@ -191,7 +191,7 @@ p {
 }
 
 .back-button:hover {
-    transform: scale(1.5); /* większy hover przy kliknięciu */
+    transform: scale(1.5);
 }
 
 .back-button:hover svg {
@@ -215,7 +215,7 @@ p {
 <body>
 
 <div class="header-container">
-    <img src="napismenu1.png" alt="Menu" class="header-image" id="header-image">
+    <img src="napismenu2.jpg" alt="Menu" class="header-image" id="header-image">
     <div class="flags-container">
         <img src="flagaangli.png" alt="English" id="flag-en">
         <img src="flagaukrainy.png" alt="Ukrainian" id="flag-ua">
@@ -230,8 +230,7 @@ p {
         <path d="M14 6 L8 12 L14 18" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
 </div>
-
-
+    
 <div class="menu-container">
 
   <!-- Zupy -->
@@ -457,6 +456,7 @@ p {
 
 </body>
 </html>
+
 
 
 
