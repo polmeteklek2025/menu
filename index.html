@@ -6,7 +6,8 @@
 <title>Menu Restauracji</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
   body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -14,15 +15,14 @@
     color: #222;
     scroll-behavior: smooth;
     overflow-x: hidden;
-   padding-top: 40px;
   }
- 
+
   .parallax {
     position: fixed;
-    top: 120px; /* tło zaczyna się przy dolnym brzegu napismenu */
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - 120px);
+    height: 100%;
     background: url('tlo.jpg') no-repeat center top;
     background-size: cover;
     z-index: -1;
@@ -30,34 +30,36 @@
     transition: transform 0.1s linear;
   }
 
+  /* --- NAGŁÓWEK I OBRAZEK MENU --- */
   .header-container {
     position: relative;
-    display: inline-block;
     width: 100%;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: visible;
   }
 
-.header-image {
-    width: 100%;
-    max-height: 120px;
-    object-fit: contain;
+  .header-image {
+    width: 100vw;          /* pełna szerokość ekranu */
+    height: auto;          /* zachowuje proporcje */
+    object-fit: contain;   /* pokazuje CAŁY obraz */
     display: block;
-    z-index: 2;
+    background-color: transparent; /* przezroczyste tło */
+    mix-blend-mode: multiply;      /* efekt przenikania (flagi widoczne na tle) */
+    z-index: 1;
     position: relative;
-    cursor: pointer;
-    mix-blend-mode: multiply;
-    background-color: transparent;
   }
 
   .flags-container {
     position: absolute;
-    top: 100%;
+    top: 10px;
     right: 10px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    z-index: 3;
-    transform: translateY(10px);
+    z-index: 2;
   }
 
   .flags-container img {
@@ -140,7 +142,7 @@
 
   p {
     font-size: 1em;
-    margin: 4px 0; 
+    margin: 4px 0;
     line-height: 1.6;
   }
 
@@ -166,7 +168,6 @@
     color: #222;
   }
 
-  /* NOWE: stały przycisk powrotu ze strzałką SVG */
   .back-button {
     position: fixed;
     bottom: 25px;
@@ -174,7 +175,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(145deg, #8B6B32, #C6A664); /* złoto-brązowe tło */
+    background: linear-gradient(145deg, #8B6B32, #C6A664);
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     display: flex;
     align-items: center;
@@ -192,7 +193,7 @@
   }
 
   .back-button:hover {
-    transform: scale(1.5); /* większy hover przy kliknięciu */
+    transform: scale(1.5);
   }
 
   .back-button:hover svg {
@@ -200,12 +201,17 @@
   }
 
   @media (max-width: 600px) {
+    .header-image {
+      width: 100vw;
+      height: auto;
+      object-fit: contain;
+    }
+
     .menu-item img { width: 70vw; height: 70vw; margin-bottom: 15px; }
     .menu-text { width: 90%; font-size: 1em; }
     .menu-text.full { width: 90%; }
     h2 { font-size: 1.2em; }
     p { font-size: 0.95em; line-height: 1.4; }
-    .header-image { max-height: 100px; }
     .allergen-warning { width: 95%; font-size: 0.95em; }
 
     .back-button {
@@ -221,17 +227,25 @@
   }
 </style>
 </head>
+
 <body>
- 
+
 <div class="header-container">
-  <img src="napismenu1.png" alt="Menu" class="header-image" id="header-image">
+  <img src="napismenu2.jpg" alt="Menu" class="header-image" id="header-image">
   <div class="flags-container">
     <img src="flagaangli.png" alt="English" id="flag-en">
     <img src="flagaukrainy.png" alt="Ukrainian" id="flag-ua">
   </div>
 </div>
 
-<div class="parallax">
+<div class="parallax"></div>
+
+<div class="back-button" onclick="window.location.href='https://polmeteklek2025.github.io/gdziesiedze/'">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M14 6 L8 12 L14 18" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+
  
 </div>
 
@@ -468,6 +482,7 @@
 
 </body>
 </html>
+
 
 
 
