@@ -14,39 +14,50 @@
     color: #222;
     scroll-behavior: smooth;
     overflow-x: hidden;
+   padding-top: 40px;
   }
-
-  /* Tło strony: tlo.jpg */
+ 
   .parallax {
     position: fixed;
-    top: 300px; /* zaczyna się od dolnego brzegu napismenu2.jpg */
+    top: 120px; /* tło zaczyna się przy dolnym brzegu napismenu */
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 120px);
     background: url('tlo.jpg') no-repeat center top;
     background-size: cover;
-    z-index: 0;
+    z-index: -1;
+    transform: translateY(0);
+    transition: transform 0.1s linear;
   }
 
-  /* Dolne tło napismenu2.jpg */
-  .header-bottom {
+  .header-container {
     position: relative;
+    display: inline-block;
     width: 100%;
-    height: 300px;
-    background: url('napismenu2.jpg') no-repeat center top;
-    background-size: cover;
-    z-index: 1;
+    margin-bottom: 20px;
   }
 
-  /* Flagi */
+.header-image {
+    width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    display: block;
+    z-index: 2;
+    position: relative;
+    cursor: pointer;
+    mix-blend-mode: multiply;
+    background-color: transparent;
+  }
+
   .flags-container {
     position: absolute;
-    top: 10px;
+    top: 100%;
     right: 10px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    z-index: 10;
+    z-index: 3;
+    transform: translateY(10px);
   }
 
   .flags-container img {
@@ -62,16 +73,10 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
   }
 
-  /* Kontener zawartości */
-  .content {
-    position: relative;
-    z-index: 2; /* nad napismenu2.jpg */
-    margin-top: -100px; /* zawartość nachodzi na napismenu2.jpg */
-    padding-top: 20px;
-  }
-
   .menu-container {
-    padding: 32px 0;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
   }
 
   .menu-item {
@@ -113,12 +118,17 @@
     padding: 10px 15px;
     border-radius: 15px;
     text-align: justify;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     transition: all 0.8s ease-out;
   }
 
-  .menu-text.full h2 {
-    margin-bottom: 8px; /* niewielki odstęp między nagłówkiem a potrawami */
+  .menu-text.full {
+    padding: 20px 25px;
+    margin-bottom: 20px;
+  }
+
+  .menu-text h2 {
+    margin-bottom: 15px;
   }
 
   h2 {
@@ -134,6 +144,14 @@
     line-height: 1.6;
   }
 
+  .menu-text.full p {
+    line-height: 1.9;
+  }
+
+  .menu-text p::before { content: "• "; color: #222; }
+  .menu-text .no-dot { color: #888; text-indent: 0; }
+  .menu-text .no-dot::before { content: ""; }
+
   .allergen-warning {
     width: 90%;
     max-width: 800px;
@@ -148,7 +166,7 @@
     color: #222;
   }
 
-  /* Przycisk powrotu */
+  /* NOWE: stały przycisk powrotu ze strzałką SVG */
   .back-button {
     position: fixed;
     bottom: 25px;
@@ -156,7 +174,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(145deg, #8B6B32, #C6A664);
+    background: linear-gradient(145deg, #8B6B32, #C6A664); /* złoto-brązowe tło */
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     display: flex;
     align-items: center;
@@ -174,7 +192,7 @@
   }
 
   .back-button:hover {
-    transform: scale(1.5);
+    transform: scale(1.5); /* większy hover przy kliknięciu */
   }
 
   .back-button:hover svg {
@@ -187,63 +205,33 @@
     .menu-text.full { width: 90%; }
     h2 { font-size: 1.2em; }
     p { font-size: 0.95em; line-height: 1.4; }
-    .flags-container img { width: 35px; }
-    .back-button { width: 50px; height: 50px; bottom: 20px; left: 20px; }
-    .back-button svg { width: 22px; height: 22px; }
+    .header-image { max-height: 100px; }
+    .allergen-warning { width: 95%; font-size: 0.95em; }
+
+    .back-button {
+      width: 50px;
+      height: 50px;
+      bottom: 20px;
+      left: 20px;
+    }
+    .back-button svg {
+      width: 22px;
+      height: 22px;
+    }
   }
 </style>
 </head>
 <body>
-
-<!-- Tło strony: tlo.jpg -->
-<div class="parallax"></div>
-
-<!-- Zawartość strony nachodzi na napismenu2.jpg -->
-<div class="content">
-  <div class="menu-container">
-    <div class="menu-item visible">
-      <img src="potrawa1.jpg" alt="Potrawa 1">
-      <div class="menu-text full">
-        <h2>- Zupa serwowana</h2>
-        <p>Rosół z makaronem</p>
-        <p>Barszcz czerwony</p>
-      </div>
-    </div>
-    <div class="menu-item visible">
-      <img src="potrawa2.jpg" alt="Potrawa 2">
-      <div class="menu-text full">
-        <h2>- Drugie danie serwowane</h2>
-        <p>Schabowy z ziemniakami</p>
-        <p>Ryba po grecku</p>
-      </div>
-    </div>
-    <div class="menu-item visible">
-      <img src="potrawa3.jpg" alt="Potrawa 3">
-      <div class="menu-text full">
-        <h2>- Desery</h2>
-        <p>Sernik domowy</p>
-        <p>Lody czekoladowe</p>
-      </div>
-    </div>
+ 
+<div class="header-container">
+  <img src="napismenu1.png" alt="Menu" class="header-image" id="header-image">
+  <div class="flags-container">
+    <img src="flagaangli.png" alt="English" id="flag-en">
+    <img src="flagaukrainy.png" alt="Ukrainian" id="flag-ua">
   </div>
 </div>
 
-<!-- Dolne tło: napismenu2.jpg -->
-<div class="header-bottom"></div>
-
-<!-- Flagi -->
-<div class="flags-container">
-  <img src="flagaangli.png" alt="English" id="flag-en">
-  <img src="flagaukrainy.png" alt="Ukrainian" id="flag-ua">
-</div>
-
-<!-- Przycisk powrotu -->
-<div class="back-button" onclick="window.location.href='https://polmeteklek2025.github.io/gdziesiedze/'">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M14 6 L8 12 L14 18" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</div>
-
+<div class="parallax">
 
 <div class="menu-container">
 
@@ -470,6 +458,7 @@
 
 </body>
 </html>
+
 
 
 
