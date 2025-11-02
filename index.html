@@ -14,12 +14,26 @@
     color: #222;
     scroll-behavior: smooth;
     overflow-x: hidden;
-   padding-top: 40px;
+    padding-top: 40px;
   }
- 
+
+  /* --- NOWE TŁO: napismenu2.jpg --- */
+  .header-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    background: url('napismenu2.jpg') no-repeat center top;
+    background-size: cover;
+    z-index: -2;
+  }
+
+  /* --- ISTNIEJĄCE TŁO POD NAPISEM --- */
   .parallax {
     position: fixed;
-    top: 120px; /* tło zaczyna się przy dolnym brzegu napismenu */
+    top: 120px; /* tło zaczyna się przy dolnym brzegu napisu */
     left: 0;
     width: 100%;
     height: calc(100% - 120px);
@@ -35,29 +49,18 @@
     display: inline-block;
     width: 100%;
     margin-bottom: 20px;
+    z-index: 1;
   }
 
-.header-image {
-    width: 100%;
-    max-height: 120px;
-    object-fit: contain;
-    display: block;
-    z-index: 2;
-    position: relative;
-    cursor: pointer;
-    mix-blend-mode: multiply;
-    background-color: transparent;
-  }
-
+  /* Usuwamy napismenu3.jpg, nie potrzeba już tej klasy */
   .flags-container {
     position: absolute;
-    top: 100%;
+    top: 10px;
     right: 10px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    z-index: 3;
-    transform: translateY(10px);
+    z-index: 2;
   }
 
   .flags-container img {
@@ -127,30 +130,8 @@
     margin-bottom: 20px;
   }
 
-  .menu-text h2 {
-    margin-bottom: 15px;
-  }
-
-  h2 {
-    font-size: 1.4em;
-    font-weight: 600;
-    margin: 0;
-    text-align: center;
-  }
-
-  p {
-    font-size: 1em;
-    margin: 4px 0; 
-    line-height: 1.6;
-  }
-
-  .menu-text.full p {
-    line-height: 1.9;
-  }
-
-  .menu-text p::before { content: "• "; color: #222; }
-  .menu-text .no-dot { color: #888; text-indent: 0; }
-  .menu-text .no-dot::before { content: ""; }
+  h2 { font-size: 1.4em; font-weight: 600; margin: 0; text-align: center; }
+  p { font-size: 1em; margin: 4px 0; line-height: 1.6; }
 
   .allergen-warning {
     width: 90%;
@@ -166,7 +147,6 @@
     color: #222;
   }
 
-  /* NOWE: stały przycisk powrotu ze strzałką SVG */
   .back-button {
     position: fixed;
     bottom: 25px;
@@ -174,7 +154,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(145deg, #8B6B32, #C6A664); /* złoto-brązowe tło */
+    background: linear-gradient(145deg, #8B6B32, #C6A664);
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     display: flex;
     align-items: center;
@@ -184,20 +164,9 @@
     transition: all 0.3s ease;
   }
 
-  .back-button svg {
-    width: 26px;
-    height: 26px;
-    fill: white;
-    transition: transform 0.3s ease;
-  }
-
-  .back-button:hover {
-    transform: scale(1.5); /* większy hover przy kliknięciu */
-  }
-
-  .back-button:hover svg {
-    transform: translateX(-3px);
-  }
+  .back-button svg { width: 26px; height: 26px; fill: white; transition: transform 0.3s ease; }
+  .back-button:hover { transform: scale(1.5); }
+  .back-button:hover svg { transform: translateX(-3px); }
 
   @media (max-width: 600px) {
     .menu-item img { width: 70vw; height: 70vw; margin-bottom: 15px; }
@@ -205,33 +174,31 @@
     .menu-text.full { width: 90%; }
     h2 { font-size: 1.2em; }
     p { font-size: 0.95em; line-height: 1.4; }
-    .header-image { max-height: 100px; }
     .allergen-warning { width: 95%; font-size: 0.95em; }
-
-    .back-button {
-      width: 50px;
-      height: 50px;
-      bottom: 20px;
-      left: 20px;
-    }
-    .back-button svg {
-      width: 22px;
-      height: 22px;
-    }
+    .back-button { width: 50px; height: 50px; bottom: 20px; left: 20px; }
+    .back-button svg { width: 22px; height: 22px; }
   }
 </style>
 </head>
 <body>
- 
+
+<!-- NOWE NIERUCHOME TŁO -->
+<div class="header-background"></div>
+
 <div class="header-container">
-  <img src="napismenu2.jpg" alt="Menu" class="header-image" id="header-image">
   <div class="flags-container">
     <img src="flagaangli.png" alt="English" id="flag-en">
     <img src="flagaukrainy.png" alt="Ukrainian" id="flag-ua">
   </div>
 </div>
 
-<div class="parallax">
+<div class="parallax"></div>
+
+<div class="back-button" onclick="window.location.href='https://polmeteklek2025.github.io/gdziesiedze/'">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M14 6 L8 12 L14 18" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
  
 <div class="menu-container">
 
@@ -458,6 +425,7 @@
 
 </body>
 </html>
+
 
 
 
