@@ -17,36 +17,17 @@
     padding-top: 40px;
   }
 
-  /* --- NOWE GÓRNE TŁO: napismenu2.jpg jako prostokąt --- */
+  /* --- Górne tło napismenu2.jpg --- */
   .header-top {
     width: 100%;
-    height: auto;
-    max-height: 120px;  /* wysokość prostokąta u góry */
+    height: 120px; /* wysokość prostokąta nagłówka */
     background: url('napismenu2.jpg') no-repeat center top;
     background-size: cover;
-  }
-
-  .parallax {
-    position: fixed;
-    top: 120px; /* tło zaczyna się pod napisem */
-    left: 0;
-    width: 100%;
-    height: calc(100% - 120px);
-    background: url('tlo.jpg') no-repeat center top;
-    background-size: cover;
-    z-index: -1;
-    transform: translateY(0);
-    transition: transform 0.1s linear;
-  }
-
-  .header-container {
     position: relative;
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 20px;
+    z-index: 1;
   }
 
-  /* Przywrócone stare ustawienia dla flag */
+  /* Flagi widoczne nad nagłówkiem */
   .flags-container {
     position: absolute;
     top: 10px;
@@ -70,7 +51,19 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
   }
 
-  /* --- POWRÓT DO STARYCH USTAWIEŃ MENU --- */
+  /* --- Parallax: tlo.jpg --- */
+  .parallax {
+    position: fixed;
+    top: 120px; /* zaczyna się pod dolnym brzegiem header-top */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 120px);
+    background: url('tlo.jpg') no-repeat center top;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  /* --- Pozostałe ustawienia menu i treści (przywrócone) --- */
   .menu-container {
     padding: 20px 0;
     position: relative;
@@ -117,37 +110,15 @@
     border-radius: 15px;
     text-align: justify;
     margin-bottom: 15px;
-    transition: all 0.8s ease-out;
   }
 
-  .menu-text.full {
-    padding: 20px 25px;
-    margin-bottom: 20px;
-  }
+  .menu-text.full { padding: 20px 25px; margin-bottom: 20px; }
 
-  .menu-text h2 {
-    margin-bottom: 15px;
-  }
-
-  h2 {
-    font-size: 1.4em;
-    font-weight: 600;
-    margin: 0;
-    text-align: center;
-  }
-
-  p {
-    font-size: 1em;
-    margin: 4px 0; 
-    line-height: 1.6;
-  }
-
-  .menu-text.full p {
-    line-height: 1.9;
-  }
+  h2 { font-size: 1.4em; font-weight: 600; margin: 0 0 15px 0; text-align: center; }
+  p { font-size: 1em; margin: 4px 0; line-height: 1.6; }
+  .menu-text.full p { line-height: 1.9; }
 
   .menu-text p::before { content: "• "; color: #222; }
-  .menu-text .no-dot { color: #888; text-indent: 0; }
   .menu-text .no-dot::before { content: ""; }
 
   .allergen-warning {
@@ -202,6 +173,7 @@
 <!-- NOWE GÓRNE TŁO -->
 <div class="header-top"></div>
 
+<!-- Flagi nad header-top -->
 <div class="header-container">
   <div class="flags-container">
     <img src="flagaangli.png" alt="English" id="flag-en">
@@ -209,13 +181,16 @@
   </div>
 </div>
 
+<!-- Parallax: tlo.jpg pod nagłówkiem -->
 <div class="parallax"></div>
 
+<!-- Przycisk powrotu -->
 <div class="back-button" onclick="window.location.href='https://polmeteklek2025.github.io/gdziesiedze/'">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M14 6 L8 12 L14 18" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 </div>
+
  
 <div class="menu-container">
 
@@ -442,6 +417,7 @@
 
 </body>
 </html>
+
 
 
 
