@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -14,28 +15,23 @@
     color: #222;
     scroll-behavior: smooth;
     overflow-x: hidden;
-    padding-top: 40px;
   }
 
-  /* --- Górne tło napismenu2.jpg --- */
-  .header-top {
+  /* Górne zdjęcie napismenu2.jpg */
+  .header-top img {
     width: 100%;
-    height: 120px; /* wysokość prostokąta nagłówka */
-    background: url('napismenu2.jpg') no-repeat center top;
-    background-size: cover;
-    position: relative;
-    z-index: 1;
+    height: auto;
+    display: block;
   }
 
-  /* Flagi widoczne nad nagłówkiem */
   .flags-container {
     position: absolute;
-    top: 10px;
+    top: 10px; /* umieść na samej górze zdjęcia */
     right: 10px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    z-index: 2;
+    z-index: 10;
   }
 
   .flags-container img {
@@ -51,19 +47,18 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
   }
 
-  /* --- Parallax: tlo.jpg --- */
+  /* Parallax tło pod header-top */
   .parallax {
     position: fixed;
-    top: 120px; /* zaczyna się pod dolnym brzegiem header-top */
+    top: 0; /* początek od góry */
     left: 0;
     width: 100%;
-    height: calc(100% - 120px);
+    height: 100%;
     background: url('tlo.jpg') no-repeat center top;
     background-size: cover;
     z-index: -1;
   }
 
-  /* --- Pozostałe ustawienia menu i treści (przywrócone) --- */
   .menu-container {
     padding: 20px 0;
     position: relative;
@@ -110,15 +105,37 @@
     border-radius: 15px;
     text-align: justify;
     margin-bottom: 15px;
+    transition: all 0.8s ease-out;
   }
 
-  .menu-text.full { padding: 20px 25px; margin-bottom: 20px; }
+  .menu-text.full {
+    padding: 20px 25px;
+    margin-bottom: 20px;
+  }
 
-  h2 { font-size: 1.4em; font-weight: 600; margin: 0 0 15px 0; text-align: center; }
-  p { font-size: 1em; margin: 4px 0; line-height: 1.6; }
-  .menu-text.full p { line-height: 1.9; }
+  .menu-text h2 {
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1em;
+    margin: 4px 0; 
+    line-height: 1.6;
+  }
+
+  .menu-text.full p {
+    line-height: 1.9;
+  }
 
   .menu-text p::before { content: "• "; color: #222; }
+  .menu-text .no-dot { color: #888; text-indent: 0; }
   .menu-text .no-dot::before { content: ""; }
 
   .allergen-warning {
@@ -135,6 +152,7 @@
     color: #222;
   }
 
+  /* Przycisk powrotu */
   .back-button {
     position: fixed;
     bottom: 25px;
@@ -152,9 +170,20 @@
     transition: all 0.3s ease;
   }
 
-  .back-button svg { width: 26px; height: 26px; fill: white; transition: transform 0.3s ease; }
-  .back-button:hover { transform: scale(1.5); }
-  .back-button:hover svg { transform: translateX(-3px); }
+  .back-button svg {
+    width: 26px;
+    height: 26px;
+    fill: white;
+    transition: transform 0.3s ease;
+  }
+
+  .back-button:hover {
+    transform: scale(1.5);
+  }
+
+  .back-button:hover svg {
+    transform: translateX(-3px);
+  }
 
   @media (max-width: 600px) {
     .menu-item img { width: 70vw; height: 70vw; margin-bottom: 15px; }
@@ -162,7 +191,7 @@
     .menu-text.full { width: 90%; }
     h2 { font-size: 1.2em; }
     p { font-size: 0.95em; line-height: 1.4; }
-    .allergen-warning { width: 95%; font-size: 0.95em; }
+    .flags-container img { width: 35px; }
     .back-button { width: 50px; height: 50px; bottom: 20px; left: 20px; }
     .back-button svg { width: 22px; height: 22px; }
   }
@@ -170,10 +199,12 @@
 </head>
 <body>
 
-<!-- NOWE GÓRNE TŁO -->
-<div class="header-top"></div>
+<!-- Górne zdjęcie -->
+<div class="header-top">
+  <img src="napismenu2.jpg" alt="Menu">
+</div>
 
-<!-- Flagi nad header-top -->
+<!-- Flagi -->
 <div class="header-container">
   <div class="flags-container">
     <img src="flagaangli.png" alt="English" id="flag-en">
@@ -181,7 +212,7 @@
   </div>
 </div>
 
-<!-- Parallax: tlo.jpg pod nagłówkiem -->
+<!-- Parallax tło pod napismenu2.jpg -->
 <div class="parallax"></div>
 
 <!-- Przycisk powrotu -->
@@ -190,6 +221,14 @@
     <path d="M14 6 L8 12 L14 18" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 </div>
+
+<!-- Zawartość menu -->
+<div class="menu-container">
+  <!-- Tu wstaw zdjęcia potraw i opisy -->
+</div>
+
+</body>
+</html>
 
  
 <div class="menu-container">
@@ -417,6 +456,7 @@
 
 </body>
 </html>
+
 
 
 
