@@ -17,23 +17,18 @@
     padding-top: 40px;
   }
 
-  /* --- NOWE TŁO: napismenu2.jpg --- */
-  .header-background {
-    position: fixed;
-    top: 0;
-    left: 0;
+  /* --- NOWE GÓRNE TŁO: napismenu2.jpg jako prostokąt --- */
+  .header-top {
     width: 100%;
     height: auto;
-    min-height: 100vh;
+    max-height: 120px;  /* wysokość prostokąta u góry */
     background: url('napismenu2.jpg') no-repeat center top;
     background-size: cover;
-    z-index: -2;
   }
 
-  /* --- ISTNIEJĄCE TŁO POD NAPISEM --- */
   .parallax {
     position: fixed;
-    top: 120px; /* tło zaczyna się przy dolnym brzegu napisu */
+    top: 120px; /* tło zaczyna się pod napisem */
     left: 0;
     width: 100%;
     height: calc(100% - 120px);
@@ -49,10 +44,9 @@
     display: inline-block;
     width: 100%;
     margin-bottom: 20px;
-    z-index: 1;
   }
 
-  /* Usuwamy napismenu3.jpg, nie potrzeba już tej klasy */
+  /* Przywrócone stare ustawienia dla flag */
   .flags-container {
     position: absolute;
     top: 10px;
@@ -76,6 +70,7 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
   }
 
+  /* --- POWRÓT DO STARYCH USTAWIEŃ MENU --- */
   .menu-container {
     padding: 20px 0;
     position: relative;
@@ -130,8 +125,30 @@
     margin-bottom: 20px;
   }
 
-  h2 { font-size: 1.4em; font-weight: 600; margin: 0; text-align: center; }
-  p { font-size: 1em; margin: 4px 0; line-height: 1.6; }
+  .menu-text h2 {
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1em;
+    margin: 4px 0; 
+    line-height: 1.6;
+  }
+
+  .menu-text.full p {
+    line-height: 1.9;
+  }
+
+  .menu-text p::before { content: "• "; color: #222; }
+  .menu-text .no-dot { color: #888; text-indent: 0; }
+  .menu-text .no-dot::before { content: ""; }
 
   .allergen-warning {
     width: 90%;
@@ -182,8 +199,8 @@
 </head>
 <body>
 
-<!-- NOWE NIERUCHOME TŁO -->
-<div class="header-background"></div>
+<!-- NOWE GÓRNE TŁO -->
+<div class="header-top"></div>
 
 <div class="header-container">
   <div class="flags-container">
@@ -425,6 +442,7 @@
 
 </body>
 </html>
+
 
 
 
