@@ -10,14 +10,12 @@
 
   body {
     font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
     color: #222;
     scroll-behavior: smooth;
     overflow-x: hidden;
   }
 
-  /* Tło strony */
+  /* --- TŁO STRONY --- */
   .parallax {
     position: fixed;
     top: 0;
@@ -26,10 +24,10 @@
     height: 100%;
     background: url('tlo.jpg') no-repeat center top;
     background-size: cover;
-    z-index: -2; /* na samym tle */
+    z-index: -2;
   }
 
-  /* --- NAGŁÓWEK I OBRAZEK MENU --- */
+  /* --- NAGŁÓWEK: NAPIS MENU jako górne tło --- */
   .header-container {
     position: relative;
     width: 100%;
@@ -37,14 +35,13 @@
     justify-content: center;
     align-items: flex-start;
     overflow: visible;
-    z-index: 1; /* nad tłem */
-    margin: 0 auto;
+    z-index: 1;
   }
 
   .header-image {
-    width: 100vw;          /* pełna szerokość */
-    height: auto;          /* zachowuje proporcje */
-    object-fit: contain;   /* pokazuje cały obraz */
+    width: 100vw;
+    height: auto;
+    object-fit: cover;   /* pokazuje całe zdjęcie */
     background-color: transparent;
     mix-blend-mode: multiply; /* flaga widoczna */
     position: relative;
@@ -74,33 +71,94 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
   }
 
-  /* Przywrócenie wcześniejszego układu treści */
+  /* --- TREŚĆ STRONY: MENU I ZDJĘCIA POTRAW --- */
   .menu-container {
-    padding: 20px 0;
     position: relative;
     z-index: 1;
-    margin-top: 0; /* nie przesuwamy w dół */
+    margin-top: -60px; /* przesunięcie treści w górę, na napis MENU */
+    padding: 20px 0;
   }
 
-  /* Reszta stylów menu pozostaje bez zmian */
-  .menu-item { display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden; opacity: 1; transform: translateY(50px); padding: 20px 0; transition: all 1s ease-out; width: 100%; }
-  .menu-item.visible { opacity: 1; transform: translateY(0); }
-  .menu-item img { width: 50vw; max-width: 360px; height: 50vw; max-height: 360px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; transition: transform 0.8s ease-out, box-shadow 0.5s ease; box-shadow: 0 5px 25px rgba(0,0,0,0.35); }
-  .menu-item img:hover { transform: scale(1.08); box-shadow: 0 15px 35px rgba(0,0,0,0.45); }
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 20px 0;
+    transition: all 1s ease-out;
+    width: 100%;
+  }
 
-  .menu-text { width: 80%; max-width: 500px; background: rgba(255,255,255,0.8); padding: 10px 15px; border-radius: 15px; text-align: justify; margin-bottom: 15px; transition: all 0.8s ease-out; }
-  .menu-text.full { padding: 20px 25px; margin-bottom: 20px; }
-  .menu-text h2 { margin-bottom: 15px; }
+  .menu-item img {
+    width: 50vw;
+    max-width: 360px;
+    height: 50vw;
+    max-height: 360px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: transform 0.8s ease-out, box-shadow 0.5s ease;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.35);
+  }
+
+  .menu-item img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+  }
+
+  .menu-text {
+    width: 80%;
+    max-width: 500px;
+    background: rgba(255,255,255,0.8);
+    padding: 10px 15px;
+    border-radius: 15px;
+    text-align: justify;
+    margin-bottom: 15px;
+    transition: all 0.8s ease-out;
+  }
+
+  .menu-text.full {
+    padding: 20px 25px;
+    margin-bottom: 20px;
+  }
+
   h2 { font-size: 1.4em; font-weight: 600; margin: 0; text-align: center; }
   p { font-size: 1em; margin: 4px 0; line-height: 1.6; }
-  .menu-text.full p { line-height: 1.9; }
-  .menu-text p::before { content: "• "; color: #222; }
-  .menu-text .no-dot { color: #888; text-indent: 0; }
-  .menu-text .no-dot::before { content: ""; }
 
-  .allergen-warning { width: 90%; max-width: 800px; background: rgba(200,200,200,0.3); margin: 30px auto 50px auto; padding: 15px 20px; border-radius: 15px; font-family: 'Playfair Display', serif; text-align: center; font-size: 1em; line-height: 1.6; color: #222; }
+  .allergen-warning {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(200,200,200,0.3);
+    margin: 30px auto 50px auto;
+    padding: 15px 20px;
+    border-radius: 15px;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.6;
+    color: #222;
+  }
 
-  .back-button { position: fixed; bottom: 25px; left: 25px; width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(145deg, #8B6B32, #C6A664); box-shadow: 0 4px 12px rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 100; transition: all 0.3s ease; }
+  .back-button {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #8B6B32, #C6A664);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+  }
+
   .back-button svg { width: 26px; height: 26px; fill: white; transition: transform 0.3s ease; }
   .back-button:hover { transform: scale(1.5); }
   .back-button:hover svg { transform: translateX(-3px); }
@@ -116,6 +174,7 @@
     .back-button { width: 50px; height: 50px; bottom: 20px; left: 20px; }
     .back-button svg { width: 22px; height: 22px; }
   }
+
 </style>
 </head>
 <body>
@@ -129,7 +188,7 @@
   </div>
 </div>
 
-<!-- Tło pozostaje pod napisem -->
+<!-- Tło pod napisem -->
 <div class="parallax"></div>
 
 <!-- Przycisk powrotu -->
@@ -137,8 +196,8 @@
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M14 6 L8 12 L14 18" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-
 </div>
+
 
 <div class="menu-container">
 
@@ -365,6 +424,7 @@
 
 </body>
 </html>
+
 
 
 
