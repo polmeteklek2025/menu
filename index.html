@@ -16,7 +16,7 @@
     overflow-x: hidden;
   }
 
-  /* Parallax tło tlo.jpg - PRZED napismenu2.jpg */
+  /* Tło strony: tlo.jpg */
   .parallax {
     position: fixed;
     top: 0;
@@ -25,17 +25,17 @@
     height: 100%;
     background: url('tlo.jpg') no-repeat center top;
     background-size: cover;
-    z-index: 0; /* POD napismenu2.jpg */
+    z-index: 0; /* POD wszystkim */
   }
 
-  /* Górne tło napismenu2.jpg */
-  .header-top {
+  /* Dolne tło napismenu2.jpg */
+  .header-bottom {
     position: relative;
     width: 100%;
     height: 300px; /* wysokość prostokąta z napisem */
     background: url('napismenu2.jpg') no-repeat center top;
     background-size: cover;
-    z-index: 1; /* NAD tlo.jpg */
+    z-index: 1; /* NAD tlo.jpg, ale POD zawartością */
   }
 
   /* Flagi */
@@ -62,12 +62,11 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
   }
 
-  /* Kontener całej zawartości strony */
+  /* Kontener zawartości */
   .content {
     position: relative;
-    z-index: 2; /* NAD napismenu2.jpg */
-    margin-top: -150px; /* zawartość nachodzi na napismenu2.jpg */
-    padding-top: 40px;
+    z-index: 2; /* nad napismenu2.jpg */
+    margin-top: 40px; /* można delikatnie przesunąć w dół */
   }
 
   .menu-container {
@@ -122,10 +121,6 @@
     margin-bottom: 20px;
   }
 
-  .menu-text h2 {
-    margin-bottom: 15px;
-  }
-
   h2 {
     font-size: 1.4em;
     font-weight: 600;
@@ -138,14 +133,6 @@
     margin: 4px 0; 
     line-height: 1.6;
   }
-
-  .menu-text.full p {
-    line-height: 1.9;
-  }
-
-  .menu-text p::before { content: "• "; color: #222; }
-  .menu-text .no-dot { color: #888; text-indent: 0; }
-  .menu-text .no-dot::before { content: ""; }
 
   .allergen-warning {
     width: 90%;
@@ -208,11 +195,16 @@
 </head>
 <body>
 
-<!-- Parallax tło tlo.jpg -->
+<!-- Parallax tło: tlo.jpg -->
 <div class="parallax"></div>
 
-<!-- Górne tło napismenu2.jpg nachodzi na tło -->
-<div class="header-top"></div>
+<!-- Zawartość strony nachodzi na tlo.jpg -->
+<div class="content">
+  <!-- tutaj zawartość menu, zdjęcia potraw itp. -->
+</div>
+
+<!-- Dolne tło: napismenu2.jpg -->
+<div class="header-bottom"></div>
 
 <!-- Flagi -->
 <div class="flags-container">
@@ -227,10 +219,6 @@
   </svg>
 </div>
 
-<!-- Zawartość strony nachodzi na napismenu2.jpg -->
-<div class="content">
-  <!-- reszta zawartości strony -->
-</div>
  
 <div class="menu-container">
 
@@ -457,6 +445,7 @@
 
 </body>
 </html>
+
 
 
 
