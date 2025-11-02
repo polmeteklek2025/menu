@@ -38,12 +38,16 @@
   }
 
 .header-image {
-  width: 100vw;       /* pełna szerokość okna przeglądarki */
-  height: auto;       /* proporcjonalna wysokość */
-  max-height: none;   /* usuwa limit 100px */
-  object-fit: cover;        /* rozciąga obraz tak, by wypełnił kontener */
-  background-color: transparent;
-
+  width: 100vw;          /* pełna szerokość ekranu */
+  height: auto;          /* zachowuje proporcje */
+  max-height: none;      /* brak limitu wysokości */
+  object-fit: contain;   /* pokazuje CAŁE zdjęcie bez przycinania */
+  display: block;
+  background-color: transparent; /* zachowuje przezroczystość */
+  mix-blend-mode: multiply;      /* subtelne przenikanie z tłem */
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
   }
 
   .flags-container {
@@ -465,6 +469,7 @@
 
 </body>
 </html>
+
 
 
 
