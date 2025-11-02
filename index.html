@@ -17,17 +17,16 @@
    padding-top: 40px;
   }
  
-  .parallax {
-    position: fixed;
-    top: 120px; /* tło zaczyna się przy dolnym brzegu napismenu */
+.parallax {
+    position: relative; /* zamiast fixed */
+    top: 120px; 
     left: 0;
     width: 100%;
-    height: calc(100% - 120px);
+    height: auto; /* wysokość dopasowana do zawartości */
+    min-height: 100vh; /* przynajmniej wysokość ekranu */
     background: url('tlo.jpg') no-repeat center top;
     background-size: cover;
     z-index: -1;
-    transform: translateY(0);
-    transition: transform 0.1s linear;
   }
 
   .header-container {
@@ -457,6 +456,7 @@
 
 </body>
 </html>
+
 
 
 
