@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -17,16 +16,20 @@
     overflow-x: hidden;
   }
 
-  /* Górne zdjęcie napismenu2.jpg */
-  .header-top img {
+  /* Górne tło napismenu2.jpg */
+  .header-top {
+    position: relative;
     width: 100%;
-    height: auto;
-    display: block;
+    height: 200px; /* wysokość prostokąta z napisem */
+    background: url('napismenu2.jpg') no-repeat center top;
+    background-size: cover;
+    z-index: 0;
   }
 
+  /* Flagi */
   .flags-container {
     position: absolute;
-    top: 10px; /* umieść na samej górze zdjęcia */
+    top: 10px;
     right: 10px;
     display: flex;
     flex-direction: column;
@@ -47,10 +50,10 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
   }
 
-  /* Parallax tło pod header-top */
+  /* Parallax tło pod napismenu2.jpg */
   .parallax {
     position: fixed;
-    top: 0; /* początek od góry */
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -59,10 +62,16 @@
     z-index: -1;
   }
 
-  .menu-container {
-    padding: 20px 0;
+  /* Kontener całej zawartości strony */
+  .content {
     position: relative;
     z-index: 1;
+    margin-top: -150px; /* przesunięcie zawartości w górę, nachodzącej na napismenu2.jpg */
+    padding-top: 40px;
+  }
+
+  .menu-container {
+    padding: 20px 0;
   }
 
   .menu-item {
@@ -199,20 +208,16 @@
 </head>
 <body>
 
-<!-- Górne zdjęcie -->
-<div class="header-top">
-  <img src="napismenu2.jpg" alt="Menu">
-</div>
+<!-- Górne tło napismenu2.jpg -->
+<div class="header-top"></div>
 
 <!-- Flagi -->
-<div class="header-container">
-  <div class="flags-container">
-    <img src="flagaangli.png" alt="English" id="flag-en">
-    <img src="flagaukrainy.png" alt="Ukrainian" id="flag-ua">
-  </div>
+<div class="flags-container">
+  <img src="flagaangli.png" alt="English" id="flag-en">
+  <img src="flagaukrainy.png" alt="Ukrainian" id="flag-ua">
 </div>
 
-<!-- Parallax tło pod napismenu2.jpg -->
+<!-- Parallax tło -->
 <div class="parallax"></div>
 
 <!-- Przycisk powrotu -->
@@ -222,13 +227,8 @@
   </svg>
 </div>
 
-<!-- Zawartość menu -->
-<div class="menu-container">
-  <!-- Tu wstaw zdjęcia potraw i opisy -->
-</div>
-
-</body>
-</html>
+<!-- Zawartość strony nachodzi na napismenu2.jpg -->
+<div class="content">
 
  
 <div class="menu-container">
@@ -456,6 +456,7 @@
 
 </body>
 </html>
+
 
 
 
